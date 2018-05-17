@@ -1,5 +1,4 @@
 
-#######Andrew!!! every line in genius starts with a capital letter
 ###source
 #####https://stackoverflow.com/questions/18599398/python-extracting-a-substring-using-a-for-loop-instead-of-split-method-or-any?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
@@ -7,11 +6,12 @@ from lxml import html
 import requests
 from bs4 import BeautifulSoup
 lyrics = []
+dirtywords = ['shit', 'piss', 'fuck', 'cunt', 'cocksucker', 'motherfucker', 'tits']
 #Lyric Link creation
 # song = input("What tune is playing in your head?")
 # artist = input("Who is singing the tune in your head").capitalize()
-song = "Hotel California"
-artist = "Eagles"
+song = "the real slim shady"
+artist = "eminem"
 if " " in (song):
     song = song.replace(" ", "-")
 if " " in (artist):
@@ -39,20 +39,158 @@ def Lyricator():
     # print(prelyricindex)
     ################################prelyric index +2 to get rid of \n at beggining
     lyrics = songchoice[prelyricindex + 2: songoverindex]
-    for position, character in enumerate(lyrics):
+    lyrics.replace('</a>', '')
+    lyrics.replace('<br/>', '')
+    splitlyrics = lyrics.split('\n')
+    dirtywords = ['shit', 'piss', 'fuck', 'cunt', 'cocksucker', 'motherfucker', 'tits']
 
-        if character == '<':
-            # print(position, character)
-            carrotstart = position -1
-            # print(linestart, linend)
-        if character == '>':
-            # print(position, character)
-            carrotend = position + 1
-            # print(carrotstart, carrotend)
-            badline = lyrics[carrotstart:carrotend]
-            lyrics = lyrics.replace(lyrics[carrotstart:carrotend], '')
-            if badline not in lyrics:
-                print(lyrics)
+    # possible substring finder from a list
+    #if any(word in splitlyrics for word in badphrase):
+######## list functions https://www.programiz.com/python-programming/list
+############################################################################## copy a list... newlist = oldlist[:]
+    for position, line in enumerate(splitlyrics):
+        dirtywords = ['shit', 'piss', 'fuck', 'cunt', 'cocksucker', 'motherfucker', 'tits']
+        shinylyrics = splitlyrics[:]
+        # print(position, line)
+        lines = []
+        if 'shit' in line:
+            print(splitlyrics[position] + " misfit")
+        if 'piss' in line:
+            print(splitlyrics[position] + " kiss")
+        if 'fuck' in line:
+            print(splitlyrics[position] + " truck")
+        if 'cunt' in line:
+            print(splitlyrics[position] + " hunt")
+        if 'cocksucker' in line:
+            print(splitlyrics[position] + " glock hunter")
+        if 'motherfucker' in line:
+            print(splitlyrics[position] + " cheecky bugger")
+        if 'tits' in line:
+            print(splitlyrics[position] + " bits")
+
+
+
+
+
+
+
+
+
+            # print(shinylyrics)
+        # if '_' in line:
+        #     print(position, line)
+        #     del splitlyrics[position]
+        #     print(splitlyrics)
+        # badpositions = ['go']
+        # lines = ['all star']
+        # # print(position, line, len(line))
+        # if '</a>' in line:
+        #     del splitlyrics[position]
+        #     # print(position, line)
+        # if '<br/>' in line:
+        #     badpositions = []
+        #     badpositions.extend(str(position))
+        #     # print(badpositions)
+        #     # print(position, line + 'bad br')
+        #     # del splitlyrics[position]
+
+
+
+        # if '<' and '>' in line:
+        #     del splitlyrics[position]
+        #     # print(splitlyrics)
+
+
+
+
+        # if '<' and '>' not in line:
+        #     goodex = splitlyrics.index(line)
+        #     print(goodex)
+        # if '<br/>' in line:
+        #     splitlyrics.remove(line)
+        # if '</a>' in line:
+        #     splitlyrics.remove(line)
+
+
+        # if '<' and '>' in line:
+        #     print(line)
+        #     splitlyrics.remove(line)
+            # print(splitlyrics)
+
+
+            # splitlyrics.remove(line)
+                    # print(splitlyrics)
+
+
+        #     # print(smallbadline)
+        #     smallbadline.append(position)
+        #     print(smallbadline)
+        #     # print(position, line + "Badline")
+        #     # splitlyrics.remove(line)
+        #     # print(position, line)
+        # if '<' in line:
+        #     carrotstart = splitlyrics.index(line)
+        #     baddex.append(position)
+        #     # print(baddex)
+        # if '>' in line:
+        #     carrotend = splitlyrics.index(line)
+        #     # print(carrotstart, carrotend)
+        #     badline = (splitlyrics[carrotstart:carrotend])
+        #     # print(badline)
+
+
+
+
+
+
+
+
+##########old plan before split idea
+
+    # for position, character in enumerate(splitlyrics):
+    #     lines = []
+    #     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[],"
+    #     # print(character, position)
+    #     line = []
+    #     if character in alphabet:
+    #         x = 0
+    #         linestart = position
+    #         line.append(character)
+    #         # print(line)
+    #         x += 1
+    #     if character == ' ':
+    #         wordend = position
+    #
+    #     if character == '\n':
+    #         linend = position
+
+                # print(line)
+                # if character not in alphabet:
+                #     linend = position
+            # line = lyrics[linestart:]
+            # print(line)
+            # for character, position in enumerate(line):
+
+        #     print(linestart, linend)
+        # if character == '<':
+        #     carrotstart = position -12
+        #     # print(carrotstart)
+        #     line = lyrics[9:carrotstart]
+        #     # print(line + "Line1")
+        #     lines.append(lyrics[:carrotstart])
+        #     # print(lines)
+        # if character == '>':
+        #     carrotend = position + 1
+        #     # print(carrotstart, carrotend)
+        #     badline = lyrics[carrotstart:carrotend]
+
+            # if '<' or '>' in badline:
+            #     lyrics = lyrics.replace(badline, ' ')
+            # if badline not in lyrics:
+            #     print("lyric here " + lyrics)
+            # lyrics = lyrics.replace(lyrics[carrotstart:carrotend], '')
+            # if badline not in lyrics:
+            #     # print(lyrics)
 
             # if badline not in lyrics:
             #     print(lyrics)
@@ -139,6 +277,7 @@ def Lyricator():
 
 
 Lyricator()
+print()
 
 
 
